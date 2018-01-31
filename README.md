@@ -9,12 +9,17 @@ if you haven't previously installed.
 If you've got setup done,
 
 To Restart a machine
-> ``` docker-machine restart```
+> ```docker-machine restart```
 To stop your machine
-> ``` docker-machine stop```
+> ```docker-machine stop```
 
 To allow interaction with containers select your relevant
 docker-machine config
-> ```bash docker-machine env default```
+> ```docker-machine env default```
 Configure your shell
-> ```bash  eval $(docker-machine env default)```
+> ```eval $(docker-machine env default)```
+
+To list your images
+> ```docker images```
+
+
