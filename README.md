@@ -8,18 +8,18 @@ if you haven't previously installed.
 ## QuickRef
 If you've got setup done,
 
-To Restart a machine
+- To Restart a machine
 > ```docker-machine restart```
-To stop your machine
+- To stop your machine
 > ```docker-machine stop```
 
-To allow interaction with containers select your relevant
+- To allow interaction with containers select your relevant
 docker-machine config
 > ```docker-machine env default```
-Configure your shell
+- Configure your shell
 > ```eval $(docker-machine env default)```
 
-To list your images
+- To list your images
 > ```docker images```
 
 
