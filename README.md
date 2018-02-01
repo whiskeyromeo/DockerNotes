@@ -92,18 +92,22 @@ From the docker site:
 any replicas will be distributed across the machines. These instances can then be accessed using ssh as specified above. 
 
 ### Adding services
+
 * If you check out `docker-compose.yml` you will see three services, web, visualizer, and redis. The elements down the tree from each of these services represent the configuration for each service. To add a service, simply follow the proper configuration steps and add it in a similar fashion. 
 * If you have a swarm with the visualizer open running, you can visualize it on port 8080 of your docker-machine ip
   - NOTE : Make sure you are on the leader's ip
-* Service Notes
-  - Notice that in `docker-compose.yml` under the redis and visualization services we are running these services on the manager, in the case of the visualizer this restricts our access to the GUI to the port on the manager's ip. In the case of redis, we are accessing an arbitrary directory `/data` located in the containers filesystem, which would be wiped if the container was ever redeployed. This constrains redis to using the same host and lets the container access the ./data directory on the specified host, enabling continuity between container deployments.
-   - In order to create the ./data directory, we ssh into the manager and deploy the docker-compose.yml with the redis service
+
+* Notice that in `docker-compose.yml` under the redis and visualization services we are running these services on the manager, in the case of the visualizer this restricts our access to the GUI to the port on the manager's ip. In the case of redis, we are accessing an arbitrary directory `/data` located in the containers filesystem, which would be wiped if the container was ever redeployed. This constrains redis to using the same host and lets the container access the ./data directory on the specified host, enabling continuity between container deployments.
+* In order to create the ./data directory, we ssh into the manager and deploy the docker-compose.yml with the redis service
    ```
       mkdir ./data
       docker stack deploy -c docker-compose.yml <my-image-name>
       docker service ls     # to verify that the proper number of services were created with the correct number of replicas
    ```
-   - Visiting our managing or member swarm ips we should be able to access data from our redis store.
+* Visiting our managing or member swarm ips we should be able to access data from our redis store. If we visit 
+the visualizer, we should see the number of replicas of our original service( container) running as well as the visualizer and redis services. 
+
+  
 
 
 
