@@ -47,7 +47,7 @@ docker-machine config
   docker build -t <whatever-name-you-want> <dir>
 ```
 
-## Using Swarms
+## Using Docker Swarm
 This requires setting up a docker-compose.yml
 ```
   docker swarm init   # initialize the swarm
@@ -108,8 +108,14 @@ any replicas will be distributed across the machines. These instances can then b
 the visualizer, we should see the number of replicas of our original service( container) running as well as the visualizer and redis services. 
 
 
+## Deploying containers using AWS
 
-
+* Assuming you have a docker-compose set up inside your app which you want to deploy and have done some base configurations to your AWS account including setting up IAM management, you can deploy a new EC2 instance using docker-machine. First set up a new VM, using your credentials which should be located at ~/.aws/credentials if you are on mac or linux.
+```
+  docker-machine create --driver amazonec2 <your-desired-ec2-instance-and-vm-name>
+  docker-machine env <that-name-you-chose>
+  eval $(docker-machine env <that-name-you-chose>)
+```
 
   
 
