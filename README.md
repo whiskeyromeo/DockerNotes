@@ -107,7 +107,6 @@ any replicas will be distributed across the machines. These instances can then b
 * Visiting our managing or member swarm ips we should be able to access data from our redis store. If we visit 
 the visualizer, we should see the number of replicas of our original service( container) running as well as the visualizer and redis services. 
 
-  
 
 
 
