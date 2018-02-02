@@ -44,7 +44,7 @@ docker-machine config
 ```
 - Build an image from a Dockerfile -> run in the same dir as the Dockerfile
 ```
-  docker built -t <whatever-name-you-want>
+  docker build -t <whatever-name-you-want> <dir>
 ```
 
 ## Using Swarms
